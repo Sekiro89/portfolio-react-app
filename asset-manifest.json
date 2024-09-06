@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/portfilio-app-react/static/css/main.df6a7eab.css",
-    "main.js": "/portfilio-app-react/static/js/main.03375b6a.js",
-    "static/js/111.944ce873.chunk.js": "/portfilio-app-react/static/js/111.944ce873.chunk.js",
-    "static/media/photo4.jpg": "/portfilio-app-react/static/media/photo4.4c7907d15dd9ea0be97c.jpg",
-    "static/media/photo2.jpg": "/portfilio-app-react/static/media/photo2.7d510936625768642967.jpg",
-    "static/media/photo3.jpg": "/portfilio-app-react/static/media/photo3.9a32dfac129b20149889.jpg",
-    "static/media/photo1.jpg": "/portfilio-app-react/static/media/photo1.76b22eb753ddc88e0626.jpg",
-    "index.html": "/portfilio-app-react/index.html",
-    "main.df6a7eab.css.map": "/portfilio-app-react/static/css/main.df6a7eab.css.map",
-    "main.03375b6a.js.map": "/portfilio-app-react/static/js/main.03375b6a.js.map",
-    "111.944ce873.chunk.js.map": "/portfilio-app-react/static/js/111.944ce873.chunk.js.map"
+    "main.css": "/portfolio-react-app/static/css/main.df6a7eab.css",
+    "main.js": "/portfolio-react-app/static/js/main.0cc961f5.js",
+    "static/js/111.944ce873.chunk.js": "/portfolio-react-app/static/js/111.944ce873.chunk.js",
+    "static/media/photo4.jpg": "/portfolio-react-app/static/media/photo4.4c7907d15dd9ea0be97c.jpg",
+    "static/media/photo2.jpg": "/portfolio-react-app/static/media/photo2.7d510936625768642967.jpg",
+    "static/media/photo3.jpg": "/portfolio-react-app/static/media/photo3.9a32dfac129b20149889.jpg",
+    "static/media/photo1.jpg": "/portfolio-react-app/static/media/photo1.76b22eb753ddc88e0626.jpg",
+    "index.html": "/portfolio-react-app/index.html",
+    "main.df6a7eab.css.map": "/portfolio-react-app/static/css/main.df6a7eab.css.map",
+    "main.0cc961f5.js.map": "/portfolio-react-app/static/js/main.0cc961f5.js.map",
+    "111.944ce873.chunk.js.map": "/portfolio-react-app/static/js/111.944ce873.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.df6a7eab.css",
-    "static/js/main.03375b6a.js"
+    "static/js/main.0cc961f5.js"
   ]
 }

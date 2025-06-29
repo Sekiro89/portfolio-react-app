@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Heading, VStack } from "@chakra-ui/react";
+import {Text,chakra,Heading, VStack,Button} from "@chakra-ui/react";
 import FullScreenSection from "./FullScreenSection";
 
 const greeting = "Hello, I am Keerthan!";
@@ -13,22 +13,32 @@ const LandingSection = () => (
     justifyContent="center"
     alignItems="center"
     isDarkBackground
-    backgroundColor="#2A4365"
+    backgroundColor="#151515"
   >
-    <VStack spacing={20}>
-          <Avatar src="https://i.pravatar.cc/150?img=7"
-          size="2"
-          name="keerthan p karanth"/>
-            <Heading as="h4" size="md" noOfLiners={1}>
-              {greeting}
-            </Heading>
-            <VStack spacing={6}>
-             <Heading as="h1" noOfLiners={1}>{bio1}
-              </Heading>
-              <Heading as="h1" noOfLiners={1}>{bio2}
-              </Heading>
-            </VStack>
-    </VStack>
+     <VStack spacing={8} textAlign="center" maxW="800px" px={4}>
+     <Heading as="h1" size="2xl" color="whiteAlpha.900">
+         Hi, I'm <chakra.span color="teal.300">Keerthan</chakra.span>
+      </Heading>
+
+    <Heading as="h2" size="lg" color="teal.100">
+      I'm a Frontend Developer
+    </Heading>
+
+    <Text fontSize="md" color="gray.300">
+      I build responsive, modern, and user-friendly web applications
+      using React. Passionate about clean code and intuitive design.
+    </Text>
+    <Button
+    as="a"
+    href="https://drive.google.com/file/d/1Mtc__cf5pd9lsFLenO_BoZo9TSTAZd-j/view?usp=sharing"
+    colorScheme="teal"
+    size="md"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    My Resume
+  </Button>
+  </VStack>
     
   </FullScreenSection>
 );

@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import {
   Box,
   Button,
+  Center,
   FormControl,
   FormErrorMessage,
   FormLabel,
@@ -49,12 +50,14 @@ const LandingSection = () => {
   return (
     <FullScreenSection
       isDarkBackground
-      backgroundColor="#512DA8"
+      backgroundColor="#121212"
       py={16}
       spacing={8}
+      justifyContent="center"
+      alignItems="center"
     >
-      <VStack w="1024px" p={32} alignItems="flex-start">
-        <Heading as="h1" id="contactme-section">
+      <VStack w="1024px" p={32} alignSelf="flex-start">
+        <Heading as="h1" id="contactme-section" color="teal.300">
           Contact me
         </Heading>
         <Box p={6} rounded="md" w="100%">
@@ -104,7 +107,7 @@ const LandingSection = () => {
                 />
                 <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
               </FormControl>
-              <Button type="submit" colorScheme="purple" width="full">
+              <Button type="submit" width="full"  bg="teal.400" _hover={{ bg: "teal.500" }}>
                 Submit
               </Button>
             </VStack>

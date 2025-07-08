@@ -31,7 +31,7 @@ const Header = () => {
 
     // Handle scroll events
     const handleScroll = () => {
-      const currScrollPos = window.scrollY;
+      const currScrollPos = window.scrollY; 
       const currHeaderElement = headerRef.current;
 
       if (!currHeaderElement){

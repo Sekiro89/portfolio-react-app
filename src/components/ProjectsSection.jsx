@@ -23,10 +23,10 @@ export const projects = [
    link:"https://sekiro89.github.io/Moviesearch/"
   },
   {
-    title: "Portfolio app",
-    description: "A personal portfolio website built with React and Chakra UI to showcase projects, skills, and contact information in a clean, responsive, and professional layout.",
-   getImageSrc: () => require("../images/portfolioimg.png"),
-   link:" https://sekiro89.github.io/portfolio-react-app/"
+    title: "travel planner",
+    description: "Travel Planner is a React-based web app that helps users design and explore personalized travel itineraries with an intuitive, responsive interface and smooth navigation.",
+   getImageSrc: () => require("../images/travelplanner.jpg"),
+   link:" https://sekiro89.github.io/travel-planner/"
   },
 ];
 

@@ -28,6 +28,13 @@ export const projects = [
    getImageSrc: () => require("../images/travelplanner.jpg"),
    link:" https://sekiro89.github.io/travel-planner/"
   },
+  {
+    title: "resume builder",
+    description: "A dynamic resume builder with live preview, theming, and PDF export. Stay in control of your career.",
+   getImageSrc: () => require("../images/resumebuilder.png"),
+   link:"https://sekiro89.github.io/Resume-builder-website/"
+  },
+
 ];
 
 const ProjectsSection = () => {

@@ -1,111 +1,112 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import {
-  faGithub,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
-import { Box, HStack } from "@chakra-ui/react";
+  Box,
+  HStack,
+  VStack,
+  IconButton,
+  useDisclosure,
+  Collapse,
+} from "@chakra-ui/react";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
 const socials = [
-  {
-    icon: faEnvelope,
-    url: "mailto: keerthanpkaranth@gmail.com",
-  },
-  {
-    icon: faGithub,
-    url: "https://github.com/Sekiro89",
-  },
-  {
-    icon: faLinkedin,
-    url: "http://www.linkedin.com/in/keerthanpkaranth",
-  },
- 
+  { icon: faEnvelope, url: "mailto:keerthanpkaranth@gmail.com" },
+  { icon: faGithub, url: "https://github.com/Sekiro89" },
+  { icon: faLinkedin, url: "http://www.linkedin.com/in/keerthanpkaranth" },
 ];
 
 const Header = () => {
   const headerRef = useRef(null);
+  const { isOpen, onToggle } = useDisclosure();
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
 
-  useEffect(() => {
-    let prevScrollPos = window.scrollY;
+  const handleScroll = () => { 
+    const currScrollPos = window.scrollY; 
+    const currHeaderElement = headerRef.current;
+     if (!currHeaderElement){ 
+      return; } 
+      if (prevScrollPos > currScrollPos) 
+        { currHeaderElement.style.transform = "translateY(0)"; }
+       else { currHeaderElement.style.transform = "translateY(-200px)"; } 
+       prevScrollPos = currScrollPos; };
 
-    // Handle scroll events
-    const handleScroll = () => {
-      const currScrollPos = window.scrollY; 
-      const currHeaderElement = headerRef.current;
 
-      if (!currHeaderElement){
-        return;
-      }
-        
-    
-      if (prevScrollPos > currScrollPos) {
-        currHeaderElement.style.transform = "translateY(0)";
-      } else {
-        currHeaderElement.style.transform = "translateY(-200px)";
-      }
-      
-      prevScrollPos = currScrollPos;
-    };
-
-    // Set up listeners for the scroll event
-    window.addEventListener("scroll", handleScroll);
-
-    // Remove listeners for the scroll event
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
   const handleClick = (anchor) => () => {
-    const id = `${anchor}-section`;
-    const element = document.getElementById(id);
+    const element = document.getElementById(`${anchor}-section`);
     if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+    onToggle(); // Close mobile menu after click
   };
-  
+
   return (
     <Box
+      ref={headerRef}
       position="fixed"
       top={0}
       left={0}
       right={0}
-      translateY={0}
-      transitionProperty="transform"
-      transitionDuration=".3s"
-      transitionTimingFunction="ease-in-out"
       backgroundColor="#18181b"
+      zIndex={1000}
+      transition="transform .3s ease-in-out"
     >
-      <Box color="white" maxWidth="1280px" margin="0 auto">
+      <Box color="white" maxWidth="1280px" mx="auto">
         <HStack
-          px={16}
+          px={{ base: 4, md: 16 }}
           py={4}
           justifyContent="space-between"
           alignItems="center"
           color={"teal.300"}
         >
-          <nav>
-            <HStack spacing={8}>
-              {
-                socials.map((social) =>
-                  <a href={social.url} key={social.url}>
-                      <FontAwesomeIcon icon={social.icon} size="2x"/>
-                  </a>)
-              }
-            </HStack>
-          </nav>
-          <nav>
-            <HStack spacing={8}>
-              <a href="#projects"onClick={handleClick("projects")} color="teal">projects</a>
-              <a href="#contactme"onClick={handleClick("contactme")}color="teal">contact me</a>
-            </HStack>
-          </nav>
+          {/* Social Icons */}
+          <HStack spacing={6}>
+            {socials.map((social) => (
+              <a href={social.url} key={social.url}>
+                <FontAwesomeIcon icon={social.icon} size="2x" />
+              </a>
+            ))}
+          </HStack>
+
+          {/* Desktop Navigation */}
+          <HStack
+            spacing={8}
+            display={{ base: "none", md: "flex" }}
+          >
+            <a onClick={handleClick("projects")}>projects</a>
+            <a onClick={handleClick("contactme")}>contact me</a>
+          </HStack>
+
+          {/* Mobile Hamburger Button */}
+          <IconButton
+            display={{ base: "flex", md: "none" }}
+            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+            onClick={onToggle}
+            variant="ghost"
+            color="white"
+            aria-label="Toggle Navigation"
+          />
         </HStack>
+
+        {/* Mobile Menu */}
+        <Collapse in={isOpen} animateOpacity>
+          <VStack
+            align="start"
+            px={6}
+            pb={4}
+            spacing={4}
+            display={{ base: "flex", md: "none" }}
+            color="teal.300"
+          >
+            <a onClick={handleClick("projects")}  >projects</a>
+            <a onClick={handleClick("contactme")} >contact me</a>
+          </VStack>
+        </Collapse>
       </Box>
     </Box>
   );
 };
+
 export default Header;

@@ -30,7 +30,7 @@ const LandingSection = () => (
     </Text>
     <Button
     as="a"
-    href="https://drive.google.com/file/d/1NEoRrM4JTD8m7SrGhNkT0pC-QJgoZ80L/view?usp=sharing"
+    href="https://drive.google.com/file/d/1J03Zu9_s70XQKmst_8n76GP321ItNHRi/view?usp=sharing"
     colorScheme="teal"
     size="md"
     target="_blank"
